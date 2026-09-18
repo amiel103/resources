@@ -1,0 +1,80 @@
+
+DROP TABLE IF EXISTS Customers CASCADE;
+DROP TABLE IF EXISTS Sales CASCADE;
+CREATE TABLE Customers (
+  	customer_id INTEGER PRIMARY KEY,
+  	name TEXT NOT NULL,
+  	address TEXT NOT NULL,
+	gender TEXT NOT NULL,
+	salary Integer
+);
+
+-- insert
+INSERT INTO Customers VALUES 
+	(1, 'Clark', 'cogon','MALE' , 20000),
+	(2, 'Charles', 'camaman an','MALE' , 100000),
+	(3, 'khassy', 'Bukidnon','FEMALE' , 100000),
+	(4, 'Symond', 'Kauswagan','MALE' , 100000),
+	(5, 'Kirsten', 'Iponan','FEMALE' , 20000),
+	(6, 'Amiel', 'Villanueva','MALE' , 2000),
+	(7, 'Gab', 'cogon','MALE' , 20000),
+	(8, 'Albrien', 'carmen','MALE' , 25000),
+	(9, 'Gabriel', 'Bonbon','MALE' , 250000),
+	(10, 'Rene', 'Agusan','MALE' , 1000000),
+	(11, 'Yochanan', 'United States of Cogon','MALE' , 150000),
+	(12, 'Kyle', 'Manolo','MALE' , 150),
+	(13, 'allen', 'bacolod','MALE' , 20000),
+	(14, 'lex', 'tablon','MALE' , 20000),
+	(15, 'Rodel', 'biringan','MALE' , 100000);
+	
+	
+	
+CREATE TABLE Sales (
+  	Sales_id INTEGER PRIMARY KEY,
+  	customer_id INTEGER,
+  	item TEXT,
+	total integer,
+	date text,
+	
+	foreign key(customer_id)
+	references Customers(customer_id)
+);
+
+
+INSERT INTO Sales VALUES 
+	(1, 1, 'Iphone', 80000 , 'sept 1'),
+	(2, 2, 'Samsung', 80000 , 'sept 1'),
+	(3, 3, 'Iphone', 5000 , 'sept 1'),
+	(4, 4, 'Redmi', 4999 , 'sept 1'),
+	(5, 5, 'Tulfone', 7000 , 'sept 1'),
+	(6, 1, 'Myphone', 9000 , 'sept 1'),
+	(7, 3, 'Iphone', 14000 , 'sept 1'),
+	(8, 2, 'Sony', 30000 , 'sept 1'),
+	(9, 8, 'Huawei', 20000 , 'sept 1'),
+	(10, 11, 'Pixel', 25000 , 'sept 1'),
+	(11, 13, 'Iphone', 28000 , 'sept 1'),
+	(12, 12, 'Iphone', 15000 , 'sept 1'),
+	(13, 1, 'Iphone', 50000 , 'sept 1'),
+	(14, 1, 'qnet', 3000 , 'sept 1'),
+	(15, 13, 'zhandk', 3000 , 'sept 1');
+
+
+SELECT 
+	C.address , count(*)
+FROM Customers C
+join Sales S on C.customer_id = S.customer_id
+group by C.address;
+
+
+SELECT 
+	C.gender , sum(S.total)
+FROM Customers C
+join Sales S on C.customer_id = S.customer_id
+group by C.gender;
+
+SELECT 
+	S.item , avg(C.salary)
+FROM Customers C
+join Sales S on C.customer_id = S.customer_id
+where S.item = 'Iphone'
+group by S.item;
