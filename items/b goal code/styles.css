@@ -1,0 +1,113 @@
+body{
+	background-color:green;
+	width:100vw;
+	height:100vh;
+	display:flex;
+	margin-top:300px;
+	flex-direction:column;
+	justify-content:center;
+	align-items:center;
+}
+
+p{
+	font-size:80px;
+	font-family:helvetica;
+	margin:0;
+}
+
+#row{
+	display:flex;
+}
+
+#column{
+	display:flex;
+	flex-direction: column;
+}
+
+#top_section{
+	display:flex;
+	width: 1200px;
+}
+
+#bottom_section{
+	display:flex;
+	width: 1200px;
+}
+
+#box1{
+	width:200px;
+	height:600px;
+	margin:10px;
+	background-image: url("miming2.jpg");
+	background-repeat: no-repeat;
+	background-size: 200px 600px;
+
+}
+
+#box2{
+	width:1000px;
+	height:600px;
+	margin:10px;
+}
+
+#text_top_section{
+	display:flex;
+	justify-content:flex-end;
+	width:780px;
+	height:260px;
+}
+
+#box3{
+	width:150px;
+	height:150px;
+	background-color:blue;
+	margin:10px;
+	background-image: url("miming3.jpg");
+	background-repeat: no-repeat;
+	background-size: 150px 150px;
+}
+#box4{
+	width:150px;
+	height:150px;
+	background-color:blue;
+	margin:10px;
+	background-image: url("miming4.jpg");
+	background-repeat: no-repeat;
+	background-size: 150px 150px;
+}
+
+#box5{
+	width:150px;
+	height:150px;
+	background-color:blue;
+	margin:10px;
+	background-image: url("miming5.jpg");
+	background-repeat: no-repeat;
+	background-size: 150px 150px;
+}
+#box6{
+	width:600px;
+	height:150px;
+	background-color:blue;
+	margin:10px;
+	background-image: url("miming6.jpg");
+	background-repeat: no-repeat;
+	background-size: 600px 150px;
+}
+
+#box7{
+	width:200px;
+	height:600px;
+	margin:10px;
+	background-image: url("pexels-rene-36736791.jpg");
+	background-repeat: no-repeat;
+	background-size: 200px 600px;
+}
+
+#text_part{
+	width:780px;
+	height:850px;
+	margin:10px;
+	display:flex;
+	justify-content:flex-start;
+}

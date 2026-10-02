@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Page Title</title>
+		<link rel="stylesheet" href="styles.css">
+	</head>
+
+	<body>
+
+	
+
+		username
+		<input id='user' type='text'>
+		password
+		<input id='pass' type='text'>
+
+		<button type="button" onclick="clickButton( document.getElementById('user').value ,document.getElementById('pass').value )">Click Me!</button>
+
+		<script>
+
+
+		const user = 'qwer';
+		const pass = '1234'
+
+
+		const clickButton = (a,b) =>{
+	
+
+			if(a==user && b==pass){
+				alert('login successs');
+				document.location.href = 'profile.html.html';
+			}
+		}
+
+		</script>
+	</body>
+</html>
