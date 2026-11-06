@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Page Title</title>
+		<link rel="stylesheet" href="styles.css">
+		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	</head>
+
+	<body>
+
+	
+
+		username
+		<input id='user' type='text'>
+		password
+		<input id='pass' type='text'>
+
+		<button type="button" onclick="clickButton( document.getElementById('user').value ,document.getElementById('pass').value )">Click Me!</button>
+
+		<script>
+
+
+		const user = 'qwer';
+		const pass = '1234'
+
+
+		const clickButton = (a,b) =>{
+
+			const postData = {
+				name:a,
+				password:b
+			};
+
+			const data = {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify(postData)
+			}
+	
+			async function fetchData() {
+				try {
+					const response = await fetch('http://127.0.0.1:8000/usersLogin',data);
+					console.log(response)
+					if (response.data.status =='success') {
+						document.location.href = 'profile.html.html';
+					} else {
+						throw new Error('Failed to fetch data');
+					}
+				} catch (error) {
+					console.error('Error:', error); 
+				}
+			}
+
+			fetchData()
+	
+		}
+
+		</script>
+	</body>
+</html>
