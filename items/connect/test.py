@@ -4,6 +4,9 @@ from contextlib import asynccontextmanager
 from database import create_db_and_tables, engine
 from fastapi.middleware.cors import CORSMiddleware
 
+
+import hashlib
+
 from models import Users
 
 @asynccontextmanager
@@ -46,6 +49,8 @@ async def read_employee(id):
 @app.post("/users")
 async def root(users  : Users):
     with Session(engine) as session:
+
+        users.password = hashlib.sha256(users.password.encode()).hexdigest()
         session.add(users)
         session.commit()
         session.refresh(users)
@@ -56,8 +61,7 @@ async def root(users  : Users):
     with Session(engine) as session:
 
 
-        print()
-        statement = select(Users).where(Users.name == users.name).where(Users.password == users.password)
+        statement = select(Users).where(Users.name == users.name).where(Users.password == hashlib.sha256(users.password.encode()).hexdigest())
         results = session.exec(statement)
 
         # if(results)

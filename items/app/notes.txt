@@ -1,0 +1,10 @@
+js navigate through webpage
+
+document.location.href = 'profile.html.html';
+
+alert people
+alert()
+
+
+prints sa console.
+console.log()

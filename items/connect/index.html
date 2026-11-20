@@ -15,13 +15,14 @@
 		password
 		<input id='pass' type='text'>
 
-		<button type="button" onclick="clickButton( document.getElementById('user').value ,document.getElementById('pass').value )">Click Me!</button>
+		<div>
+			<button type="button" onclick=""> register </button>
+			<button type="button" onclick="clickButton( document.getElementById('user').value ,document.getElementById('pass').value )"> login </button>
+		</div>
 
 		<script>
 
 
-		const user = 'qwer';
-		const pass = '1234'
 
 
 		const clickButton = (a,b) =>{
@@ -42,8 +43,10 @@
 			async function fetchData() {
 				try {
 					const response = await fetch('http://127.0.0.1:8000/usersLogin',data);
-					console.log(response)
-					if (response.data.status =='success') {
+					
+					const responseData = await response.json()
+					console.log(responseData)
+					if (responseData.status =='success') {
 						document.location.href = 'profile.html.html';
 					} else {
 						throw new Error('Failed to fetch data');
